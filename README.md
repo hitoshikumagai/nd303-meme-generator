@@ -22,7 +22,7 @@ Please type `python app.py`
 
 ### Run Script
 `python meme.py [--path PATH] [--body BODY] [--author AUTHOR]`
-`python meme.py --path "./_data/photos/dog/xander_1.jpg" --body "Hello World" --author "author"`
+`python meme.py --path ./_data/photos/dog/xander_1.jpg --body "Hello World" --author "author"`
 
 # Directory structure
 
@@ -48,8 +48,26 @@ project/
 └── README.md
 
 # Requirements
-Pillow
-pandas
-python-docx
-Flask
-requests
+blinker==1.9.0
+certifi==2024.12.14
+charset-normalizer==3.4.1
+click==8.1.8
+colorama==0.4.6
+Flask==3.1.0
+idna==3.10
+itsdangerous==2.2.0
+Jinja2==3.1.5
+lxml==5.3.0
+MarkupSafe==3.0.2
+numpy==2.2.1
+pandas==2.2.3
+pillow==11.1.0
+python-dateutil==2.9.0.post0
+python-docx==1.1.2
+pytz==2024.2
+requests==2.32.3
+six==1.17.0
+typing_extensions==4.12.2
+tzdata==2024.2
+urllib3==2.3.0
+Werkzeug==3.1.3

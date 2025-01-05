@@ -19,8 +19,10 @@ def generate_meme(path=None, body=None, author=None):
             imgs = [os.path.join(root, name) for name in files]
 
         img = random.choice(imgs)
+        
     else:
-        img = path[0]
+        # assumed image file is selected by CLI
+        img = path
 
     if body is None:
         quote_files = ['./_data/DogQuotes/DogQuotesTXT.txt',
