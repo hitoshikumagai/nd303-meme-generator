@@ -1,3 +1,4 @@
+"""Quote Engine package for handling various quote file formats."""
 from .quote_model import QuoteModel
 from .ingestor_interface import IngestorInterface
 from .csv_ingestor import CSVIngestor

@@ -1,3 +1,4 @@
+"""CSV file ingestor module for parsing quote files."""
 from typing import List
 import pandas as pd
 from .ingestor_interface import IngestorInterface

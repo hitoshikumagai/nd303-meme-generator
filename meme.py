@@ -1,3 +1,4 @@
+"""Command line interface for generating memes."""
 import os
 import random
 
@@ -8,7 +9,7 @@ from QuoteEngine import QuoteModel
 from MemeEngine import MemeEngine
 
 def generate_meme(path=None, body=None, author=None):
-    """ Generate a meme given an path and a quote """
+    """Generate a meme given an path and a quote."""
     img = None
     quote = None
 
@@ -68,3 +69,4 @@ if __name__ == "__main__":
         print(f"Meme generated successfully at: {result_path}")
     except Exception as e:
         print(f"Error generating meme: {str(e)}")
+    

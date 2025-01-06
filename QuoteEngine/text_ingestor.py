@@ -1,3 +1,4 @@
+"""Text file ingestor module for parsing quote files."""
 from typing import List
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
@@ -10,12 +11,13 @@ class TextIngestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse text file and return quotes.
+
         Args:
             path: Path to text file
+        
         Returns:
             List[QuoteModel]: List of parsed quotes
         """
-        
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest this file type')
 

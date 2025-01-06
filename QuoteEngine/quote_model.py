@@ -1,3 +1,4 @@
+"""Quote model module for representing quote data."""
 class QuoteModel:
     """A class to represent a quote with body and author."""
 
@@ -8,7 +9,6 @@ class QuoteModel:
             body: The text of the quote
             author: The author of the quote
         """
-        
         self.body = body
         self.author = author
 

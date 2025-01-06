@@ -1,3 +1,4 @@
+"""PDF file ingestor module for parsing quote files."""
 import os
 import subprocess
 from typing import List
@@ -12,12 +13,13 @@ class PDFIngestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse PDF file and return quotes.
+
         Args:
             path: Path to PDF file
+        
         Returns:
             List[QuoteModel]: List of parsed quotes
         """
-
         if not cls.can_ingest(path):
             raise Exception('Cannot ingest this file type')
 

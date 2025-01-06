@@ -1,3 +1,9 @@
+"""Module for generating memes with customizable text overlays.
+
+This module provides the MemeEngine class which handles all aspects of meme
+generation, including image loading, resizing, text placement, and saving.
+"""
+
 from PIL import Image, ImageDraw, ImageFont
 import os
 import random
@@ -10,6 +16,8 @@ class MemeEngine:
 
         Args:
             output_dir: Directory to save generated memes
+            font_path: Path to custom font file (optional)
+            font_size: Font size for text (default: 40)
         """
         self.output_dir = output_dir
         try:
@@ -20,6 +28,7 @@ class MemeEngine:
 
     def make_meme(self, img_path: str, text: str, author: str, width: int = 500) -> str:
         """Create a meme by adding text to an image.
+        
         Args:
             img_path: Path to input image
             text: Quote text to add

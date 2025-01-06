@@ -1,3 +1,4 @@
+"""Main ingestor module that coordinates all specific ingestors."""
 import os
 from typing import List
 from .ingestor_interface import IngestorInterface
@@ -15,8 +16,10 @@ class Ingestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse file using appropriate ingestor.
+
         Args:
             path: Path to file
+            
         Returns:
             List[QuoteModel]: List of parsed quotes
         """
