@@ -2,8 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
-*.jpg
+meme_*.jpg
 
 # C extensions
 *.so
