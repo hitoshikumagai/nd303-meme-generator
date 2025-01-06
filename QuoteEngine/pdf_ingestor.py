@@ -5,6 +5,7 @@ from typing import List
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
+
 class PDFIngestor(IngestorInterface):
     """Ingestor for PDF files."""
 
@@ -16,7 +17,7 @@ class PDFIngestor(IngestorInterface):
 
         Args:
             path: Path to PDF file
-        
+
         Returns:
             List[QuoteModel]: List of parsed quotes
         """
@@ -39,7 +40,7 @@ class PDFIngestor(IngestorInterface):
                 raise Exception(f'PDF conversion failed: {stderr}')
 
             quotes = []
-            
+
             # Process each line from stdout
             for line in stdout.splitlines():
                 line = line.strip()
@@ -53,6 +54,6 @@ class PDFIngestor(IngestorInterface):
                     except Exception as e:
                         print(f"Error processing line: {line}. Error: {e}")
             return quotes
-            
+
         except subprocess.CalledProcessError as e:
             raise Exception(f'PDF conversion failed: {e.stderr}')

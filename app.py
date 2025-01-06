@@ -77,27 +77,28 @@ def meme_post():
         # 1. Download and save image from URL
         response = requests.get(image_url)
         response.raise_for_status()  # Raises an HTTPError for bad responses
-        
+
         # Create temporary file path with random number to avoid collisions
-        temp_file = f'temp_{random.randint(0,100000)}.jpg'
-        
+        temp_file = f'temp_{random.randint(0, 100000)}.jpg'
+
         # Save image to temporary file
         with open(temp_file, 'wb') as f:
             f.write(response.content)
-        
+
         # 2. Generate meme using the temporary file
         path = meme.make_meme(temp_file, body, author)
-        
+
     except requests.exceptions.RequestException as e:
         print(f"Error downloading image: {str(e)}")
-        return render_template('meme_form.html', 
-                             error="Failed to download image. Please check the URL.")
-    
+        return render_template(
+            'meme_form.html',
+            error="Failed to download image. Please check the URL.")
     except Exception as e:
         print(f"Error creating meme: {str(e)}")
-        return render_template('meme_form.html', 
-                             error="Failed to create meme. Please try again.")
-    
+        return render_template(
+            'meme_form.html',
+            error="Failed to create meme. Please try again.")
+
     finally:
         # 3. Clean up - remove temporary file
         if temp_file and os.path.exists(temp_file):

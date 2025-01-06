@@ -3,6 +3,7 @@ from typing import List
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
+
 class TextIngestor(IngestorInterface):
     """Ingestor for text files."""
 
@@ -14,7 +15,7 @@ class TextIngestor(IngestorInterface):
 
         Args:
             path: Path to text file
-        
+
         Returns:
             List[QuoteModel]: List of parsed quotes
         """
@@ -34,5 +35,5 @@ class TextIngestor(IngestorInterface):
                             quotes.append(QuoteModel(body, author))
         except Exception as e:
             raise Exception(f'Error reading file: {str(e)}')
-        
+
         return quotes

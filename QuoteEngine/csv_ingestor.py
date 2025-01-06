@@ -4,6 +4,7 @@ import pandas as pd
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
+
 class CSVIngestor(IngestorInterface):
     """Ingestor for CSV files."""
 
@@ -30,7 +31,7 @@ class CSVIngestor(IngestorInterface):
                 quotes.append(QuoteModel(row['body'], row['author']))
 
             return quotes
-        
+
         except pd.errors.EmptyDataError:
             return []
         except Exception as e:

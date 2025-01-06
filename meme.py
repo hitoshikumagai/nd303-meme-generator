@@ -8,6 +8,7 @@ from QuoteEngine import Ingestor
 from QuoteEngine import QuoteModel
 from MemeEngine import MemeEngine
 
+
 def generate_meme(path=None, body=None, author=None):
     """Generate a meme given an path and a quote."""
     img = None
@@ -20,7 +21,7 @@ def generate_meme(path=None, body=None, author=None):
             imgs = [os.path.join(root, name) for name in files]
 
         img = random.choice(imgs)
-        
+
     else:
         # assumed image file is selected by CLI
         img = path
@@ -41,12 +42,14 @@ def generate_meme(path=None, body=None, author=None):
         quote = QuoteModel(body, author)
 
     # set output directory
-    output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-    
+    output_dir = os.path.join(
+        os.path.dirname(os.path.abspath(__file__)),
+        'static')
+
     # create directory if not xists
     if not os.path.exists(output_dir):
         os.makedirs(output_dir)
-    
+
     meme = MemeEngine(output_dir)
 
     path = meme.make_meme(img, quote.body, quote.author)
@@ -69,4 +72,3 @@ if __name__ == "__main__":
         print(f"Meme generated successfully at: {result_path}")
     except Exception as e:
         print(f"Error generating meme: {str(e)}")
-    

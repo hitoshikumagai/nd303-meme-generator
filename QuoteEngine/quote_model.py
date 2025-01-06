@@ -1,4 +1,6 @@
 """Quote model module for representing quote data."""
+
+
 class QuoteModel:
     """A class to represent a quote with body and author."""
 

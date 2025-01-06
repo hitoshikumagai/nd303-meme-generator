@@ -4,6 +4,7 @@ import docx
 from .ingestor_interface import IngestorInterface
 from .quote_model import QuoteModel
 
+
 class DocxIngestor(IngestorInterface):
     """Ingestor for docx files."""
 
@@ -12,7 +13,7 @@ class DocxIngestor(IngestorInterface):
     @classmethod
     def parse(cls, path: str) -> List[QuoteModel]:
         """Parse docx file and return quotes.
-        
+
         Args:
             path: Path to docx file
 
@@ -30,19 +31,24 @@ class DocxIngestor(IngestorInterface):
                 try:
                     parts = para.text.split('-')
                     if len(parts) != 2:
-                        print(f'Warning: Skipping invalid format in line: {para.text}')
+                        print(f'Warning: Skipping invalid format in line: '
+                              f'{para.text}')
                         continue
-                        
+
                     body = parts[0].strip().strip('"')
                     author = parts[1].strip()
-                    
+
                     if not body or not author:
-                        print(f'Warning: Empty quote or author in line: {para.text}')
+                        print(
+                            f'Warning: Empty quote or author in line: '
+                            f'{para.text}')
                         continue
-                        
+
                     quotes.append(QuoteModel(body, author))
-                    
+
                 except Exception as e:
-                    print(f'Error processing paragraph: {para.text}. Error: {str(e)}')
+                    print(
+                        f'Error processing paragraph: '
+                        f'{para.text}. Error: {str(e)}')
 
         return quotes

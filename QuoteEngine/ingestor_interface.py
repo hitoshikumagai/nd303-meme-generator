@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 from typing import List
 from .quote_model import QuoteModel
 
+
 class IngestorInterface(ABC):
     """Abstract base class for file ingestors."""
 
