@@ -26,7 +26,7 @@ class PDFIngestor(IngestorInterface):
 
         try:
             # Read PDF by pdftotext and capture output
-            cmd = r"""{} "{}" -""".format('xpdf', path)
+            cmd = r"""{} "{}" -""".format('pdftotext', path)
             process = subprocess.Popen(
                 cmd,
                 shell=True,
